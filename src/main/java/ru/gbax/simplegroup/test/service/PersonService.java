@@ -8,7 +8,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import ru.gbax.simplegroup.test.model.Person;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.ejb.LocalBean;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -17,14 +17,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * Сервис для работы с данными человека
  * Created by GBAX on 04.07.2015.
  */
-@Stateless
+@Stateful
 @LocalBean
 public class PersonService {
 
     private Person person = null;
 
+    /**
+     * Инициализация данных
+     */
     @PostConstruct
     public void init(){
         person = new Person();
@@ -39,10 +43,18 @@ public class PersonService {
         }
     }
 
+    /**
+     * Возвращяет данные по человеку
+     * @return
+     */
     public Person getPerson() {
         return person.copy();
     }
 
+    /**
+     * Возвращяет данные по человеку в виде JSON
+     * @return
+     */
     public String getPersonAsJSON() {
         ObjectMapper mapper = new ObjectMapper();
         String entity = "";
@@ -56,10 +68,15 @@ public class PersonService {
         return entity;
     }
 
+    /**
+     * Сохраняет данные по человеку
+     * @param updatedPerson
+     */
     public void setPerson(final Person updatedPerson) {
         person.setBirthDate(updatedPerson.getBirthDate());
         person.setFirstName(updatedPerson.getFirstName());
         person.setMiddleName(updatedPerson.getMiddleName());
         person.setSecondName(updatedPerson.getSecondName());
+        System.out.println(String.format("Сохранено: %s", getPerson()));
     }
 }

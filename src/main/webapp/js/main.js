@@ -3,6 +3,7 @@ var Utils = (function() {
     var secondName;
     var middleName;
     var birthDate;
+    //загрузка данных
     function load() {
         firstName = $("#firstName");
         secondName  = $("#secondName");
@@ -28,7 +29,7 @@ var Utils = (function() {
             }
         });
     }
-
+    //сохранение данных
     function save() {
         var bDayFormatted = birthDate.datepicker("getDate").format("yyyy-mm-dd");
         $.ajax({

@@ -3,6 +3,7 @@ package ru.gbax.simplegroup.test.model;
 import java.util.Date;
 
 /**
+ * Человек
  * Created by GBAX on 04.07.2015.
  */
 public class Person {
@@ -54,5 +55,15 @@ public class Person {
         copy.setMiddleName(this.getMiddleName());
         copy.setSecondName(this.getSecondName());
         return copy;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", birthDate=" + birthDate +
+                '}';
     }
 }
