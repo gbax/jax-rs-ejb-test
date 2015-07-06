@@ -1,0 +1,9 @@
+TEST TASK
+=========
+
+Tested on jboss-7.1.1
+
+Put simplegroup.war to ..\jboss-7.1.1.Final\standalone\deployments
+Run ..\jboss-7.1.1.Final\bin\standalone.bat
+
+Open in browser http://localhost:8080/simplegroup/main/
